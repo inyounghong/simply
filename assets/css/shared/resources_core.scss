@@ -1,0 +1,75 @@
+
+.right_preview_box {
+	.notice {
+	    font-size: 14px;
+	    border-top: 1px dotted #000;
+	    position: absolute;
+	    top: 398px;
+	    padding-top: 5px;
+	    left: 0;
+	    text-align: center;
+	    width: 100%;
+	}
+}
+
+#preview_box {
+	a {
+		font-weight:400;
+		text-decoration:none;
+	}
+    .gr-box{
+    	padding: 20px 10px 40px;
+    } 
+    .description{
+    	max-width:800px;
+    }
+    .maxheight{
+    	position:absolute;
+    	top:370px;
+    	display:block;
+    	border-top:1px dotted #777; 
+    	width:100%; 
+    	text-align:center; 
+    	padding-top:5px;
+    }
+    .gr-box{
+    	background: no-repeat
+    }
+}
+
+.tab_menu {
+    list-style-type: none;
+
+    .tab {
+	    display: inline-block;
+	    padding: 12px 0;
+	    text-align: center;
+	    cursor: pointer;
+	    width: 20%;
+	    @include box-sizing;
+	    background: $pink;
+	    @include ubuntu;
+
+	    &.o{
+	    	background: $orange;
+	    }
+	}
+
+    .active, .tab:hover {
+        background: $pink_dark !important;
+        color: #fff;
+    }
+
+}
+
+
+.tab_page {
+    background: $white;
+    padding: 30px 5%;
+    box-shadow: 0 0 10px #ddd;
+    min-height: 350px;
+
+    p {
+        margin-bottom: 10px;
+    }
+}

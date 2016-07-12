@@ -1,0 +1,99 @@
+textarea{
+	width: 100%;
+	border-color: $gray;
+	padding: 5px 0.5em;
+	min-height: 150px;
+
+	&.code{
+
+	}
+}
+
+.styled-select{
+    display: inline-block;
+    background: $gray;
+
+    select{
+        border: none;
+        outline: none;
+        font-size: 14px;
+        background: none;
+        display: inline-block;
+        height: 28px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+}
+
+.heading{
+    width:85px;
+    @include align-middle;
+}
+
+.range-wrap{
+    padding: 8px 0;
+
+
+    
+}
+
+
+
+input {
+    font-size: 14px;
+    color: #333;
+    border: none;
+    display: inline-block;
+    width: 85%;
+    margin: 2px 5px 2px 0;
+
+    &[type=text]{
+        height: 28px;
+        background: $gray;
+        padding: 0 3%;
+    }
+    &[type=checkbox] {
+        width: 15px;
+        height: 15px;
+    }
+    &:focus{
+        outline: none;
+        background: $gray_light;
+    }
+    &:disabled {
+        background: $white;
+    }
+    &.font {
+        margin: 0;
+        width: 150px;
+    }
+}
+
+.dots{
+    text-align: center;
+    margin-top: 10px;
+
+    .dot{
+        width: 10px;
+        height: 10px;
+        background: $white2;
+        display: inline-block;
+        margin: 0 1px;
+        cursor: pointer;
+        @include radius(100%);
+
+        &:hover{
+            background: $white8;
+        }
+        &.active{
+            background: $white;
+        }
+    }
+
+
+}
+
+

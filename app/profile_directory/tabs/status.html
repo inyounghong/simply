@@ -1,0 +1,14 @@
+<input type="checkbox" ng-model="form.includeStatus" id="includeStatus" class="check" checked><label for="includeStatus"> Include Status Buttons</label>
+
+<div id="statusBox" ng-show="form.includeStatus">
+
+    <div ng-repeat="button in statusButtons">
+        <input type="text" ng-model="button.name" ng-change="checkHtml()" class="name">
+        <input type="text" ng-model="button.url" ng-change="checkHtml()" class="url" placeholder="http://">
+        <input type="text" ng-model="button.description" ng-change="checkHtml()">
+    </div>
+    
+    <div id="addStatus" class="add">Add Another Button</div><br>
+    <div id="removeStatus" class="remove">Remove a Button</div>
+
+</div> <!-- End of status Box -->   

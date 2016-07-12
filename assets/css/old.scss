@@ -1,0 +1,519 @@
+
+/* Left Section */
+
+.narrow {
+    max-width: 700px;
+}
+
+
+.descript {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+        a {
+        color: #333;
+        font-weight: 600;
+    }
+}
+
+.descript a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nonpaddingLeft #left {
+    padding: 0 10% 0 10%;
+    width: 80%;
+}
+
+.section {
+    list-style: inside;
+    padding: 50px 5% 50px 5%;
+    color: #444;
+    font-weight: 400;
+    font-size: 1.05em;
+
+    a {
+        color: $pink;
+    }
+}
+
+.content {
+    margin: 30px auto 20px auto;
+    color: #444;
+    font-weight: 400;
+    font-size: 1.05em;
+    
+
+
+    h1 {
+        color: $blue;
+        margin-bottom: 5px;
+    }
+}
+
+.left60 {
+    width: 62%;
+    float: left;
+}
+
+.right40 {
+    width: 34%;
+    float: right;
+}
+
+/* Tabbing Menu */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+.formfail .tab_page {
+    width: 310px;
+}
+
+
+#message {
+    margin-top: 5px;
+    font-size: 24px;
+    color: #9BD13D;
+    display: inline-block;
+}
+
+.mid {
+    padding-bottom: 50px;
+}
+
+tbody {
+    vertical-align: top;
+}
+
+
+
+.fl {
+    float: left;
+}
+
+.box_white p {
+    margin-bottom: 20px;
+}
+
+.description p {
+    margin-bottom: 30px;
+}
+
+/* Mapping Directory */
+.map {
+
+    margin-bottom: 20px;
+}
+
+
+
+/* Front Page Slightly */
+ul.updates {
+    padding: 10px 30px;
+    background: #eee;
+    margin: 20px 0px 0;
+    list-style-type: none;
+    li {
+        margin: 15px 0;
+    }
+}
+
+.button_wrap {
+    text-align: center;
+    margin: 25px 0 10px;
+}
+
+.sbutton {
+
+    display: inline-block;
+    padding: 10px 20px;
+    transition: all .2s;
+    color: #fff !important;
+    &:hover {
+        background: $blue;
+    }
+}
+
+.box_white em {
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+
+
+/* Resource Wraps Index */
+
+h1.p:hover {
+    background: #A1334A;
+}
+
+p.description {
+    margin: 0px 0 10px;
+}
+
+
+
+/* FOOTER */
+
+#footer {
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 0;
+    font-family: 'Open Sans';
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+#footer_left {
+    float: left;
+    width: 25%;
+}
+
+/* Journal Form Page */
+label {
+    color: $blue;
+    font-weight: 400;
+}
+
+#resource .hiddenrow p {
+    max-width: 700px;
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.white {
+    max-width: 1000px;
+    background: #fff url("http://simplydevio.us/images/white.png");
+    outline: 1px solid #ddd;
+    font-size: 16px;
+    margin: 30px auto;
+    padding: 50px;
+}
+
+.ccc {
+    text-align: center;
+    width: 27%;
+    float: left;
+}
+
+
+
+.tutorial {
+    max-width: 700px;
+    span {
+        font-family: 'Courier';
+        background: #ddd;
+    }
+    img {
+        max-width: 100%;
+        margin: 10px 0 50px;
+        display: block;
+    }
+    p {
+        counter-increment: myIndex;
+        padding-left: 40px;
+        position: relative;
+        min-height: 50px;
+        &:before {
+            content: counter(myIndex);
+            font-size: 45px;
+            font-family: 'Fjalla One';
+            position: absolute;
+            left: 0px;
+            top: 14px;
+        }
+        b {
+            color: $teal;
+        }
+        i {
+            font-style: normal;
+            font-weight: bold;
+        }
+    }
+}
+
+code {
+    display: block;
+    background: #ddd;
+    padding: 5px 20px;
+    width: 80%;
+    margin: 10px 0 20px;
+
+    b {
+        color: #000 !important;
+    }
+}
+
+/* Description previews on Resource Page */
+/* Journal Form Styling */
+.add:before {
+    content: '+ ';
+}
+
+.remove:before {
+    content: '- ';
+}
+
+.add:before, .remove:before {
+    color: $pink;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.add, .remove {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.add:hover, .remove:hover {
+    color: $pink;
+}
+
+/* Range Label */
+.range_label {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Preview Page */
+td {
+    vertical-align: middle !important;
+    position: relative;
+
+    &.w25 {
+        width: 25%;
+    }
+    &.w35 {
+        width: 35%;
+    }
+    &.w50 {
+        width: 50%;
+    }
+    &.lg, &.full {
+        width: 1000px;
+    }
+
+}
+
+.note {
+    background: #ccc;
+    padding: 10px 20px;
+}
+
+.cols {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 20px;
+
+    &.even {
+        width: 45%;
+        margin-right: 3%;
+    }
+    &.lft {
+        margin-right: 3%;
+        width: 44%;
+    }
+    &.rgt {
+        min-height: 420px;
+        width: 52%;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .cols {
+        width: 100% !important;
+        display: block;
+    }
+}
+
+#preview_box {
+    box-shadow: 0 0 10px #ddd;
+    background: #fff;
+    line-height: 1em;
+    z-index: 1;
+
+}
+
+.box_white {
+    background: #fff;
+    padding: 30px 30px 20px;
+    box-shadow: 0 0 10px #ddd;
+    margin-bottom: 40px;
+}
+
+
+
+td.split_range{
+    width:35%;
+    margin-right:5%;
+
+    [type=range]{
+        width:75%!important;
+    }
+
+    &:last-of-type{
+        margin-right:0;
+    }
+}
+
+form {
+    .check {
+        position: relative;
+        top: 2px;
+    }
+    .pixellong {
+        width: 30px;
+        text-align: center;
+        padding: 0 5px;
+    }
+    .desc {
+        width: 300px;
+    }
+    .infowrap {
+        width: 1000px;
+        margin: 40px auto 0;
+    }
+    .pixel, .percent {
+        width: 25px;
+        text-align: center;
+        padding: 0 5px;
+    }
+}
+
+.password {
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+
+.contact {
+    margin-bottom: 30px;
+    float: left;
+    width: 45.5%;
+    height: 125px;
+    padding: 20px 1%;
+}
+
+/* NEW TOOL TIPS */
+.tooltip {
+    display: inline-block;
+    position: absolute;
+    color: $pink;
+    z-index:100;
+
+    a{
+        font-weight: 700;
+        font-size: 20px;
+    }
+
+    .tool_info {
+        display: none;
+        line-height: 18px;
+        font-size: 14px;
+        background: $off_black;
+        color: #fff;
+        padding: 10px 15px;
+        font-weight: 400;
+
+        &:before {
+            content: '';
+            position: relative;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid $off_black;
+            display: block;
+            left: -25px;
+            top: 0px;
+        }
+        span {
+            display: block;
+            margin-top: -20px;
+        }
+    }
+    &:hover .tool_info {
+        display: block;
+        position: absolute;
+        width: 200px;
+        left: 30px;
+        top: -5px;
+    }
+}
+
+
+
+
+.pp {
+    height: 10px;
+}
+
+
+
+.w {
+    color: #fff;
+}
+
+
+
+.wbox {
+    background: url(http://simplydevio.us/images/white.png);
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
+
+.clearing {
+    height: 20px;
+    clear: both;
+}
+
+.cccc {
+    width: 19%;
+    float: left;
+    min-width: 200px;
+}
+
+.cc {
+    width: 45%;
+    float: left;
+    min-width: 300px;
+}
+
+@font-face {
+    font-family: Lobster Two;
+    src: url(fonts/LobsterTwo-Regular.ttf), url(fonts/LobsterTwo-Regular.eot);
+}
+
+
+@font-face {
+    font-family: Sue Ellen Francisco;
+    src: url(fonts/SueEllenFrancisco.ttf), url(fonts/SueEllenFrancisco.eot);
+}
+
+
+@media screen and (max-width: 800px) {
+    .left60, .right40 {
+        float: none;
+        width: 100% !important;
+    }
+}
+

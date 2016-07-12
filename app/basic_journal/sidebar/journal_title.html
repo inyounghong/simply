@@ -1,0 +1,19 @@
+<div class="slider" id="slider-title">
+	<div class="reel">
+		<div class="slide">
+			<div class="header">Title</div>
+			<span ng-repeat="e in [form.title.font]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+			<div ng-repeat="e in [form.title.font]" ng-include="'app/shared/inputs/font_noalign.html'"></div>
+		</div>
+		<div class="slide">
+			<div class="header">Time Stamp</div>
+			<span ng-repeat="e in [form.timestamp.font]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+			<div ng-repeat="e in [form.timestamp.font]" ng-include="'app/shared/inputs/font_noalign.html'"></div>
+		</div>
+	</div>
+</div>
+
+<div class="dots" ng-init="dot=0">
+	<div class="dot" onclick="slide('slider-title', 0)" ng-click="dot=0" ng-class="{'active':dot==0}"></div>
+	<div class="dot" onclick="slide('slider-title', 1)" ng-click="dot=1" ng-class="{'active':dot==1}"></div>
+</div>

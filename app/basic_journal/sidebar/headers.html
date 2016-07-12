@@ -1,0 +1,20 @@
+<div class="slider" id="slider-headers">
+	<div class="reel">
+		<div class="slide">
+			<div class="header">Main Header (H1)</div>
+			<div ng-repeat="e in [form.h1.font]" ng-include="'app/shared/inputs/background.html'"></div>
+			<span ng-repeat="e in [form.h1.font]" ng-include="'app/shared/inputs/font.html'"></span>
+		</div>
+
+		<div class="slide">
+			<div class="header">Subheader (H2)</div>
+			<div ng-repeat="e in [form.h2.font]" ng-include="'app/shared/inputs/background.html'"></div>
+			<div ng-repeat="e in [form.h2.font]" ng-include="'app/shared/inputs/font.html'"></div>
+		</div>
+	</div>
+</div>
+
+<div class="dots" ng-init="dot=0">
+	<div class="dot" onclick="slide('slider-headers', 0)" ng-click="dot=0" ng-class="{'active':dot==0}"></div>
+	<div class="dot" onclick="slide('slider-headers', 1)" ng-click="dot=1" ng-class="{'active':dot==1}"></div>
+</div>

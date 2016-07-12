@@ -1,0 +1,61 @@
+<div class="head">Background</div>
+<div class="inputs">
+    <input ng-model="form.backgroundImg" placeholder="Image Source URL">
+    <div class="tooltip"><a href="http://www.simplydevio.us/resources/image_tutorial.php">?</a><div class="tool_info"><span>Click for a tutorial</span></div></div>
+</div>
+
+<div class="head">Font Name</div>
+<div class="inputs">
+    <input ng-model="form.button.font" ng-change="checkCss()">
+    <div class="tooltip">?<div class="tool_info"><span>Use a websafe font or Google Font here</span></div></div>
+</div>
+
+<div class="head">Font Style</div>
+<div class="inputs">
+    <input type="checkbox" ng-model="form.button.italic" ng-change="checkCss()" id="italic"  class="check"> <label for="italic">Italic</label>
+    <input type="checkbox" ng-model="form.button.bold" ng-change="checkCss()" id="bold"  class="check"> <label for="bold">Bold</label>
+    <input type="checkbox" ng-model="form.button.letterSpacing" ng-change="checkCss()" id="letter_spacing"  class="check"> <label for="letter_spacing">Letter Spacing</label>
+</div>
+
+<div class="head">Font Size</div>
+<div class="inputs">
+    <input ng-model="form.button.fontSize" ng-change="checkCss()" type="range" min="0" max="30" value="14">
+    <div class="range_label" id="button_size_range">14</div>
+</div> 
+
+<div class="head">Position</div>
+<div class="inputs">
+    <input ng-model="form.topMargin" ng-change="checkCss()" type="range" min="0" max="100" value="10">
+    <div class="range_label" id="top_margin_range">10</div>
+</div> 
+
+<div class="head">Padding</div>
+<div class="inputs">
+    <input ng-model="form.button.padding" ng-change="checkCss()" id="buttonPadding" type="range" min="0" max="30">
+    <div class="range_label" id="button_padding_range">10</div>
+</div> 
+
+<div class="head">Margin</div>
+<div class="inputs">
+    <input ng-model="form.button.bottomMargin" ng-change="checkCss()" id="buttonMargin" type="range" min="0" max="20">
+    <div class="range_label" id="button_margin_range">5</div>
+    <input ng-model="form.button.rightMargin" ng-change="checkCss()" type="range" min="0" max="3.0" step="0.1">
+    <div class="range_label" >{{form.button.rightMargin}}</div>
+</div> 
+
+<div class="head">Roundness</div>
+<div class="inputs">
+    <input ng-model="form.button.radius" ng-change="checkCss()"id="buttonRadius" type="range" min="0" max="50" value="0">
+    <div class="range_label" id="button_radius_range">0</div>
+</div> 
+
+<div class="head">Width</div>
+<div class="inputs">
+    <input ng-model="form.maxWidth" ng-change="checkCss()" id="maxWidth" type="range" min="0" max="500">
+    <div class="range_label" id="width_range">{{form.maxWidth}}</div>
+</div> 
+
+<div class="head"></div>
+<div class="inputs">
+    <input type="checkbox" ng-model="form.includeArrow" id="includeArrow" ng-change="checkHtml()" class="check"> <label for="includeArrow">Include arrow (&#10152;) on hover</label><br>
+</div> 

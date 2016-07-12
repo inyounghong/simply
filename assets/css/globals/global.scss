@@ -1,0 +1,63 @@
+body{
+	//background: $gray_light url(http://www.simplydevio.us/images/stripessmall2.png);
+    color: $text_main;
+    font-family: $font_regular;
+}
+
+hr{
+	border-bottom: 1px solid $gray;
+    margin: 10px 0;
+}
+
+h1{
+	font-size: $largest;
+	font-family: $font_medium;
+}
+
+a, a:hover{
+	color: $pink;
+	text-decoration: none;
+	font-family: $font_medium;
+}
+    
+.p {
+    background: $pink;
+}
+
+.y {
+    background: $orange;
+}
+
+.b {
+    background: $blue;
+}
+
+.g {
+    background: $teal;
+}
+
+.c {
+    text-align: center;
+}
+
+.l {
+    text-align: left;
+}
+
+.r {
+    text-align: right;
+}
+
+.box_heading {
+    background: $teal;
+    padding: 13px 30px;
+    width: 60px;
+    position: relative;
+    z-index: 10;
+    color: $off_white;
+    @include ubuntu;
+}
+
+.box_heading.max {
+    width: initial;
+}

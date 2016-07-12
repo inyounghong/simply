@@ -1,0 +1,19 @@
+<div class="heading">Border</div>
+<div class="color-wrap">
+    <span ng-repeat="e in [e]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+    <div class="styled-select">
+        <select ng-model="e.style" ng-change="checkCss()">
+            <option value="none">None</option>
+            <option value="solid">Solid Border</option>
+            <option value="dashed">Dashed</option>
+            <option value="dotted">Dotted</option>
+            <option value="double">Double</option>
+        </select>
+    </div>
+</div>
+    
+<div class="range-wrap" ng-show="e.style != 'none'">
+    <span class="heading">Thickness</span>
+    <input ng-model="e.width" ng-change="checkCss()" type="range" min="1" max="10">
+    <span class="range_label">{{e.width}}</span>
+</div>

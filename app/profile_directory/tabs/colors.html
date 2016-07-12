@@ -1,0 +1,60 @@
+<table>
+    <tr>
+        <td colspan="5"><b>Normal Buttons</b></td>
+    </tr>
+    <tr>
+        <td style="width:110px;">Background</td>
+        <td>Normal</td>
+        <td><input ng-model="form.buttonBackground" ng-change="checkCss()" id="buttonBackground" class="color" maxlength="6"></td>
+        <td>Hover</td>
+        <td><input id="buttonHoverBackground" class="color" maxlength="6" value="9FCE54"></td>
+    </tr>
+    <tr>
+        <td>Text Color</td>
+        <td>Normal</td>
+        <td><input ng-model="form.buttonColor" ng-change="checkCss()" id="buttonColor" class="color" maxlength="6" value="FFFFFF"></td>
+        <td>Hover</td>
+        <td><input id="buttonHoverColor" class="color" maxlength="6" value="FFFFFF"></td>
+    </tr>
+    <tr><td>&nbsp;</td></tr>
+    <tr>
+        <td>Font Style</td>
+        <td colspan="4"><input type="checkbox" ng-model="form.italic" ng-change="checkCss()" id="italic"  class="check"> <label for="italic">Italic</label>
+        <input type="checkbox" ng-model="form.bold" ng-change="checkCss()" id="bold"  class="check"> <label for="bold">Bold</label>
+        <input type="checkbox" ng-model="form.letterSpacing" ng-change="checkCss()" id="letter_spacing"  class="check"> <label for="letter_spacing">Letter Spacing</label></td>
+    </tr>
+    <tr>
+        <td>Font Size</td>
+        <td colspan="4"><input id="status_font_size" type="range" min="0" max="30" value="14">
+        <div class="range_label" id="button_size_range">14</div></td>
+    </tr>
+</table>
+<table id="status_colors">
+    <tr>
+        <td colspan="5"><b>Status Buttons</b></td>
+    </tr>
+    <tr>
+        <td style="width:110px;">Background</td>
+        <td>Normal</td>
+        <td><input id="statusBackground" class="color" maxlength="6" value="FFA53A"></td>
+        <td>Hover</td>
+        <td><input id="statusHoverBackground" class="color" maxlength="6" value="9FCE54"></td> 
+    </tr>
+    <tr>
+        <td>Text Color</td>
+        <td>Normal</td>
+        <td><input id="statusColor" class="color" maxlength="6" value="FFFFFF"></td>
+        <td>Hover</td>
+        <td><input id="statusHoverColor" class="color" maxlength="6" value="FFFFFF"> </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td><b>Description</b></td>
+        <td colspan="2"><input id="descriptionColor" class="color" maxlength="6" value="000000"></td>
+    </tr>
+    
+</table>
+
+<input type="checkbox" id="includeTransition" class="check" checked><label for="includeTransition"> Include Transitions</label>

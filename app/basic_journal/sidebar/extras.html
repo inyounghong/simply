@@ -1,0 +1,22 @@
+<div class="slider" id="slider-extras">
+	<div class="reel">
+		<div class="slide">
+			<div class="header">Links</div>
+			<div ng-repeat="e in [form.link.font]" ng-include="'app/shared/inputs/background.html'"></div>
+			
+			<div class="heading">Color</div>
+			<span ng-repeat="e in [form.link.font]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+		</div>
+
+		<div class="slide">
+			<div class="header">Hr (Divider)</div>
+			<div class="heading">Color</div>
+			<span ng-repeat="e in [form.hr]" ng-include="'app/shared/inputs/colorpicker.html'"></span></span>
+		</div>
+	</div>
+</div>
+
+<div class="dots" ng-init="dot=0">
+	<div class="dot" onclick="slide('slider-extras', 0)" ng-click="dot=0" ng-class="{'active':dot==0}"></div>
+	<div class="dot" onclick="slide('slider-extras', 1)" ng-click="dot=1" ng-class="{'active':dot==1}"></div>
+</div>

@@ -1,0 +1,9 @@
+<div class="heading">Scroll</div>
+<input type="checkbox" ng-model="e.scroll" ng-change="checkCss()" id="e.scroll" class="check">
+<label for="e.scroll">Use Scrollbox</label>
+
+<div class="hiddenrow" ng-show="e.scroll">
+	<div class="heading">Height</div>
+	<input ng-model="e.scrollheight" ng-change="checkCss()" type="range" min="0" value="600" step="50">
+    <span class="range_label">{{e.scrollheight}}</span>
+</div>

@@ -1,0 +1,280 @@
+/* Style sheet with the new design for the Journal Skin Creator */
+
+
+.main_window{
+    margin-left:330px;
+    position:relative;
+    
+    .journal_preview{
+        margin-bottom: 50px;
+    }
+}
+
+.sidebar{
+    width:330px;
+    position:fixed;
+    top:66px;
+    left:0;
+    height:100%;
+    overflow:auto;
+    background: $pink;
+    color: $white8;
+
+    .side_page {
+        display: none;
+        padding: 20px;
+
+        @include ubuntu;
+
+        &.page-show{
+            display: block;
+        }
+
+        .header{
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .color-wrap,
+        .styled-select{
+            width: 200px;
+            margin: 3px 0;
+            @include align-middle;
+        }
+
+        .right {
+            width: 200px;
+            @include align-middle;
+        }
+
+        .img-row{
+            width: 200px;
+            margin-left: 88px;
+
+            input{
+                width: 100%;
+            }
+
+            .select-wrap .styled-select {
+                width: 97px;
+            }
+        }
+
+        label{
+            color: $white8;
+        }
+
+        .sp-replacer {
+            margin-right: 6px;
+        }
+
+    }
+
+    .block{
+        padding: 10px 20px;
+        position: relative;
+        cursor: pointer;
+        background: $black1;
+        border-bottom: 1px solid $pink;
+        @include ubuntu;
+
+        &:hover{
+            background: $white4;
+        }
+
+        &.selected{
+            background: $white3;
+            &:after{
+                content:url(../../images/arrow-up.png);
+            }
+        }
+
+        &:after{
+            content:url(../../images/arrow-down.png);
+            position:absolute;
+            right:10px;
+            top:6px;
+            opacity:.3;
+        }
+    }
+
+    select{
+        width: 100%;
+    }
+
+    .styled-select, input[type=text]{
+        background: $white3;
+        color: $white;
+        font-family: $font_regular!important;
+        &:focus{
+            background: $white4;
+        }
+    }
+
+    .select-wrap{
+        @include align-middle;
+        .styled-select{
+            width: 99px;
+        }
+    }
+
+    .color-wrap{
+        .sp-replacer{
+            padding: 4px 2px 4px 6px;
+            background: $white3;
+            margin-right: -3px;
+        }
+        .styled-select, input[type=text] {
+            width: 172px;
+            @include align-middle;
+        }
+    }
+    
+    
+}
+
+.tab_page{
+    min-height:250px;
+}
+
+.cpage textarea{
+    max-height:140px;
+    font-family: Courier;
+}
+
+.show{
+    display:block;
+}
+
+
+
+
+
+
+.preview_box a{
+    color:none!important;
+}
+
+.gr-box, .gr-body{
+    position:relative;
+    overflow:hidden;
+}
+
+
+/* Range */
+
+input[type=range] {
+    -webkit-appearance: none;
+    /*fix for FF unable to apply focus style bug */
+    /*required for proper track sizing in FF*/
+    width: 160px;
+    display: inline-block;
+    background: transparent;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 5px;
+    background: #e66578;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $white;
+    margin-top: -4px;
+}
+input[type=range]:focus {
+    outline: none;
+}
+input[type=range]::-moz-range-track {
+    width: 300px;
+    height: 5px;
+    background: #e66578;
+    border: none;
+    border-radius: 3px;
+}
+input[type=range]::-moz-range-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $white;
+}
+
+/*hide the outline behind the border*/
+input[type=range]:-moz-focusring{
+    outline: 1px solid white;
+    outline-offset: -1px;
+}
+
+input[type=range]::-ms-track {
+    width: 300px;
+    height: 5px;
+    
+    /*remove bg colour from the track, we'll use ms-fill-lower and ms-fill-upper instead */
+    background: transparent;
+    
+    /*leave room for the larger thumb to overflow with a transparent border */
+    border-color: transparent;
+    border-width: 6px 0;
+
+    /*remove default tick marks*/
+    color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+    background: #777;
+    border-radius: 10px;
+}
+input[type=range]::-ms-fill-upper {
+    background: #e97888;
+    border-radius: 10px;
+}
+input[type=range]::-ms-thumb {
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: $white;
+}
+input[type=range]:focus::-ms-fill-lower {
+    background: #888;
+}
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+
+::-webkit-input-placeholder {
+   color: $white8;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $white8;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $white8;  
+}
+
+:-ms-input-placeholder {  
+   color: $white8;  
+}
+
+.slider{
+    overflow: hidden;
+    width: 290px;
+
+    .reel{
+        width: 2000px;
+        position: relative;
+
+        .slide{
+            width: 290px;
+            @include align-top;
+        }
+    }
+}

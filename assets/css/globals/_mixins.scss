@@ -1,0 +1,28 @@
+@mixin box-sizing{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+	
+
+@mixin radius($radius){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;	
+}
+
+@mixin align-top {
+	display: inline-block;
+	vertical-align: top;
+}
+
+@mixin align-middle {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+@mixin cols{
+	vertical-align: top;
+	display: inline-block;
+}

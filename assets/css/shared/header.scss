@@ -1,0 +1,25 @@
+.navbar{
+    background: $blue;
+
+    .navbar-brand{
+        color: $white;
+        font-family: $font2_medium;
+    }
+
+    .navbar-nav>li>a{
+        @include ubuntu;
+
+        &:hover{
+            color: $white;
+        }
+    }
+
+    .navbar-toggle{
+        border: none;
+
+        &:hover, &:active, &:focus{
+            background: transparent;
+        }
+    }
+}
+

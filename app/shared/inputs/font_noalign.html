@@ -1,0 +1,11 @@
+<div class="heading">Font</div>
+<div class="color-wrap">
+	<span ng-repeat="e in [e]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+	<input type="text" ng-model="e.family" ng-blur="checkCss()" class="font">
+</div>
+
+<div class="range-wrap">
+	<span class="heading">Font Size</span>
+	<input ng-model="e.size" ng-change="checkCss()" id="e.color" type="range" min="0">
+	<span class="range_label">{{e.size}}</span>
+</div>

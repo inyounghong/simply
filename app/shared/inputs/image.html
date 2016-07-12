@@ -1,0 +1,19 @@
+<div class="heading">Background</div>
+<span ng-repeat="e in [e]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+<input type="checkbox" ng-model="e.useImage" ng-change="checkCss()" id="e.useImage" class="check" ng-checked="{{e.useImage}}">
+<label>Use Image</label>
+
+<div class="img-row" ng-show="e.useImage">
+	<input type="text" ng-model="e.image" ng-blur="checkCss()" class="url" placeholder="Image URL">
+
+	<div class="styled-select">
+		<select ng-model="e.repeat" ng-change="checkCss()">
+			<option value="repeat" selected="selected">Repeat Image</option>
+			<option value="repeat-x">Repeat Horizontally</option>
+			<option value="repeat-y">Repeat Vertically</option>       
+			<option value="no-repeat">No Repeat</option>
+		</select>
+	</div>
+	<span ng-repeat="e in [e]" ng-include="'app/shared/inputs/position.html'"></span>
+
+</div>

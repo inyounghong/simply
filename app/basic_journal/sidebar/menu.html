@@ -1,0 +1,46 @@
+<div class="slider" id="slider-menu">
+	<div class="reel">
+		<div class="slide">
+			<div class="header">Menu</div>
+			<div class="heading">Menu</div>
+			<div class="styled-select">
+				<select ng-model="form.menu.style" ng-change="checkCss()">
+					<option value="none" selected="selected">No Menu</option>
+					<option value="top">Top Menu - Buttons</option>
+					<option value="topbar">Top Menu - Bar</option>
+					<option value="middle">Middle Menu - Buttons</option>
+					<option value="middlebar">Middle Menu - Bar</option>
+					<option value="left">Left Menu</option>       
+					<option value="right">Right Menu</option>
+				</select>
+			</div>
+
+			<div ng-repeat="e in [form.menu]" ng-include="'app/shared/inputs/background.html'"></div>
+			
+			<div ng-repeat="e in [form.menu]" ng-include="'app/shared/inputs/margin.html'"></div>
+
+		</div>
+		<div class="slide">
+			<div class="header">Buttons</div>
+			<div ng-repeat="e in [form.menu.font]" ng-include="'app/shared/inputs/font_noalign.html'"></div>
+			
+			<span ng-repeat="e in [form.link]" ng-include="'app/shared/inputs/background.html'"></span>
+
+			<div class="heading">Hover</div>
+			<span ng-repeat="e in [form.link.bghover]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+			<div ng-repeat="e in [form.menu]" ng-include="'app/shared/inputs/padding.html'"></div>
+		</div>
+		<div class="slide">
+			<div class="header">Links</div>
+			<div ng-repeat="e in [form.menu.item0]" ng-include="'app/shared/inputs/menu_item.html'"></div>
+			<div ng-repeat="e in [form.menu.item1]" ng-include="'app/shared/inputs/menu_item.html'"></div>
+			<div ng-repeat="e in [form.menu.item2]" ng-include="'app/shared/inputs/menu_item.html'"></div>
+		</div>
+	</div>
+</div>
+
+<div class="dots" ng-init="dot=0">
+	<div class="dot" onclick="slide('slider-menu', 0)" ng-click="dot=0" ng-class="{'active':dot==0}"></div>
+	<div class="dot" onclick="slide('slider-menu', 1)" ng-click="dot=1" ng-class="{'active':dot==1}"></div>
+	<div class="dot" onclick="slide('slider-menu', 2)" ng-click="dot=2" ng-class="{'active':dot==2}"></div>
+</div>

@@ -1,0 +1,60 @@
+<!-- Start main content -->
+<div ng-controller="MainController">
+
+	
+
+    <h1>Resources</h1>
+
+    <div class="description">
+        <p>CSS resources for DeviantArt.</p>
+    </div>
+    <div class="row">
+	    <div class="col-sm-6">
+	        <div class="box_heading p max">Premium Profile Resources</div>
+	        <div class="box_white hp">
+	            <p class="description">CSS Creators for customizing profile pages. Each requires a password, which can be purchased on deviantART.</p>
+
+	            <div class="resource_box" ng-repeat="resource in resources">
+	            	<div ng-include src="'resource_block'"></div>
+			    </div>
+	            
+	        </div>
+	    </div>
+	    <div class="col-sm-6">
+	        <div class="box_heading y max">Journal Skins</div>
+	        <div class="box_white hy">
+	            <p class="description">Free resources for DA Journal Skins.</p>
+	            
+	            <div class="resource_box" ng-repeat="resource in journals">
+	            	<div ng-include src="'resource_block'"></div>
+			    </div>
+
+	        </div>
+	        <div class="box_heading g max">Tutorials</div>
+	        <div class="box_white hg">
+	            <div class="resource_box" ng-repeat="resource in tutorials">
+	            	<div ng-include src="'resource_block'"></div>
+			    </div>
+	        </div>
+	    </div>
+	    <div class="clearing"></div>
+	</div>
+</div>
+
+<script type="text/ng-template" id="resource_block">
+	<div class="row">
+		<div class="col-xs-4">
+			<div class="thumb_container">
+				<div href="{{resource.url}}" class="thumb">
+					sdf
+					<img src="images/{{resource.image}}" width="150">
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-8">
+		    <a class="resource_title" href="{{resource.url}}">{{resource.name}}</a>
+		    <p>{{resource.description}}</p>
+		</div>
+	</div>
+</script>
+

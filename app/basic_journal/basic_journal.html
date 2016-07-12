@@ -1,0 +1,82 @@
+
+
+    <script type="text/javascript">
+
+//     document.getElementById("textstringArea").value = clear + textstring;
+
+//     var complete_css = font_string + clear + textstring;
+//     complete_css += '#preview_box{line-height:1em;} #preview_box h2{display:block;} #preview_box h1{font-weight:bold; font-size:18px; color:#414d4c; font-size:18pt; font-family:"Trebuchet MS"; margin-bottom:15px;}';
+//     complete_css += textstring;
+
+//     return complete_css;
+// }
+
+
+// function set_range(range, element){
+//     document.getElementById(range).innerHTML = document.getElementById(element).value;
+// }
+// -->
+</script>
+
+<div class="main_window">
+    <h1>Journal Skin Creator</h1>
+    <div class="map">
+        <a href="index.php">Resources</a> > Journal Skin Creator
+    </div>
+    <div class="descript">
+        <p>Make your own DeviantART Journal skins using this free and easy-to-use tool.</p>
+    </div>
+
+    Import a skin?
+
+    <input type="text" ng-model="username">
+    <div class="button" ng-click="getJournals()">Find My Skins</div>
+
+    <div class="button" ng-click="save()">Save</div>
+    
+    <div class="journal_preview">
+
+        <span ng-bind-html="fontString"></span>
+        <span ng-bind-html="css"></span>
+        
+        <!-- Journal -->            
+        <ng-include id="journal_box" src="'app/basic_journal/gatsby_journal.html'"></ng-include>
+
+        <span ng-bind-html="small_css"></span>
+    </div>
+
+    <div class="row">
+        <!-- Rules -->
+        <div class="col-sm-6">
+            <ng-include src="'app/basic_journal/note.html'"></ng-include>
+        </div>
+        <!-- Get your code -->
+        <div class="col-sm-6">
+            <ng-include src="'app/shared/ctab.html'"></ng-include>
+        </div>
+    </div> 
+</div>
+
+<div class="sidebar">
+    <ng-include src="'app/basic_journal/sidebar.html'"></ng-include>
+</div>
+
+
+<script>
+
+
+// Adjusts the placement of the sidebar
+$(window).scroll(function (event) {
+    var scroll = $(window).scrollTop();
+    if (scroll < 66){
+        pos = 66 - scroll
+        $('.sidebar').css('top', pos + 'px');
+    }
+    else{
+        $('.sidebar').css('top', '0px');
+
+    }
+});
+</script>
+
+<script src="assets/js/slider.js"></script>

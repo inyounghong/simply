@@ -1,0 +1,20 @@
+<b>Columns</b>
+<input type="text" id="num_cols" class="small" value="2"><br>
+
+<b>Button Name</b>
+
+<b>URL or Widget URL</b>
+    <div class="tooltip"><a href="linking_widgets_tutorial.php" target="_blank">?</a><div class="tool_info"><span>Click for a tutorial on how to link widgets</span></div></div>
+<b>Long</b><br>
+
+<div ng-repeat="button in form.buttons track by $index">
+    {{$index}}
+    <input type="text" ng-model="button.name" ng-change="checkHtml()" class="name">
+    <input type="text" ng-model="button.url" ng-change="checkHtml()" class="url" placeholder="http://">
+    <input type="checkbox" ng-model="button.isLong" ng-change="checkHtml()" class="check long" checked>
+    <input ng-model="button.background" ng-change="checkCss()" id="buttonBackground" class="color" maxlength="6">
+    here
+    <div class="remove_button" ng-click="removeButton($index)">X</div>
+</div>
+
+<div id="addLeft" class="add" ng-click="addButton()">Add Button</div><br>

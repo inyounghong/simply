@@ -1,0 +1,32 @@
+$smallest:  0.75em;
+$small: 	0.85em;
+$regular: 	1em;
+$medium: 	1.5em;
+$large: 	2em;
+$largest: 	2.5em;
+
+$font_regular: "source";
+$font_bold: "source_bold";
+$font_medium: "source_medium";
+$font_light: "source_light";
+$font_lighter: "source_lighter";
+$font_italic: "source_italic";
+
+$font2_regular: "ubuntu";
+$font2_bold: "ubuntu_bold";
+$font2_medium: "ubuntu_medium";
+$font2_italic: "ubuntu_italic";
+
+
+
+@mixin ubuntu{
+	font-family: $font2_bold;
+	text-transform: uppercase;
+	font-size: $small;
+	color: $off_white;
+}
+
+@mixin ubuntu_small{
+	@include ubuntu;
+	font-size: $smallest;
+}

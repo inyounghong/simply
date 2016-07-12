@@ -1,0 +1,77 @@
+<form>
+
+    <div id="block-1" class="block selected">Journal Box</div>
+    <div id="tab-1" class="side_page page-show">
+        <ng-include src="'app/basic_journal/sidebar/journal_box.html'"></ng-include>
+    </div>
+
+    <div id="block-2" class="block">Journal Top</div>
+    <div id="tab-2" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/journal_top.html'"></ng-include>
+    </div>
+
+    <div id="block-6" class="block">Title &amp; Timestamp</div>
+    <div id="tab-6" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/journal_title.html'"></ng-include>
+    </div>
+  
+    <div id="block-3" class="block">Journal Text</div>
+    <div id="tab-3" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/journal_text.html'"></ng-include>
+    </div>
+
+    <div id="block-4" class="block">Journal Bottom</div>
+    <div id="tab-4" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/journal_bottom.html'"></ng-include>
+    </div>
+
+    <div id="block-7" class="block">Headers</div>
+    <div id="tab-7" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/headers.html'"></ng-include>
+    </div>
+
+    <div id="block-5" class="block">Block Quote</div>
+    <div id="tab-5" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/blockquotes.html'"></ng-include>
+    </div>
+
+    <div id="block-8" class="block">Extras</div>
+    <div id="tab-8" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/extras.html'"></ng-include>
+    </div>
+
+    <div id="block-9" class="block">Menu</div>
+    <div id="tab-9" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/menu.html'"></ng-include>
+    </div>
+
+    <div id="block-10" class="block">Save</div>
+    <div id="tab-10" class="side_page">
+        <ng-include src="'app/basic_journal/sidebar/save.html'"></ng-include>
+    </div>
+
+</form>
+
+<script>
+
+$(document).ready(function(){
+    for (i = 1; i <= $('.block').length; i++) { 
+        // When user clicks the block, the tab appears
+        $('#block-' + i).click(function(){
+            $(this).addClass('selected'); // Selected
+            id_name = $(this).attr('id');
+            num = id_name.split("-")[1];
+            $('#tab-' + num).slideToggle();
+            for (i = 1; i <= $('.block').length; i++) {
+                // All the other tabs slide up
+                if (i != parseInt(num)){
+                    $('#tab-' + i).slideUp();
+                    $('#block-' + i).removeClass('selected');
+                }
+            }
+        });
+    }
+});
+
+
+</script>

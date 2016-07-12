@@ -1,0 +1,54 @@
+
+<!-- <script type="text/javascript" src="js/jscolor.js"></script> -->
+<!--<script type="text/javascript" src="js/profile_directory.js"></script> -->
+<h1>Profile Directory Creator</h1>
+<div class="map">
+    <a href="index.php">Resources</a> > Profile Creator
+</div>
+
+<div class="row">
+    <div id="left" class="col-sm-6">
+        <form action="" id="profileDirectory" name="example">
+            <div class="tab_menu">
+                <li class="tab" ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}" ng-click="onClickTab(tab)">{{tab.title}}</li>
+            </div>
+
+            <div class="tab_page">
+                <ng-include src="currentTab"></ng-include>
+            </div>
+            <div ui-view></div>
+        </form>
+    </div>
+
+    <div class="col-sm-6 right_preview_box">
+        <div id="imports"></div>
+        <div class="box_heading">Preview</div>
+        <div id="preview_box">
+            <span ng-bind-html="css"></span>
+            <span ng-bind-html="small_css"></span>
+            <ng-include src="'app/shared/journal.html'"></ng-include>
+        </div>
+        <div class="notice">DeviantART has a max height of 350px, so anything below this line will be cut off!</div>
+    </div>
+</div>      
+
+<div class="row">
+    <div class="col-sm-6">
+        <p>Need help using the codes below? Read this step-by-step <a href="http://www.simplydevio.us/resources/profile_tutorial.php" target="_blank">tutorial</a>.</p>
+        
+        <div class="tab_menu">
+            <li class="tab o" ng-repeat="tab in ctabs" ng-class="{active:is_active_ctab(tab.url)}" ng-click="on_click_ctab(tab)">{{tab.title}}</li>
+        </div>
+
+        <div class="tab_page">
+            <ng-include src="current_ctab"></ng-include>
+        </div>
+    </div>
+</div>
+
+<div class="versionlog">
+    <ul>
+        <li>v.3 Updated July 7, 2015</li>
+        <li><a href="profile_directory_v2.php">v.2</a> Updated January, 2015</li>
+    </ul>
+</div>

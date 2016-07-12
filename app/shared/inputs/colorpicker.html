@@ -1,0 +1,14 @@
+<spectrum-colorpicker
+  ng-model="e.color" ng-change="checkCss()"
+  options="
+  {
+    preferredFormat: 'rgb',
+    showInput: true, 
+    showAlpha: true,
+    allowEmpty: true,
+    showPalette: true,
+    localStorageKey: 'spectrum.homepage',
+    showButtons: false,
+    palette: [],
+    maxSelectionSize: 8
+  }">

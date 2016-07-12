@@ -1,0 +1,11 @@
+<div ng-controller="CtabController">
+	<div class="tab_menu">
+	    <li class="tab o" ng-repeat="tab in ctabs" ng-class="{active:is_active_ctab(tab.url)}" ng-click="on_click_ctab(tab)">{{tab.title}}</li>
+	</div>
+
+	<div class="tab_page">
+	    <ng-include src="current_ctab"></ng-include>
+	</div>
+
+	{{hello}}
+</div>
