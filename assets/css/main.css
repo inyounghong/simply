@@ -64,8 +64,7 @@ input {
   color: #333;
   border: none;
   display: inline-block;
-  width: 85%;
-  margin: 2px 5px 2px 0; }
+  margin: 3px 0; }
   input[type=text] {
     height: 28px;
     background: #ddd;
@@ -119,16 +118,23 @@ a, a:hover {
   font-family: "source_medium"; }
 
 .p {
-  background: #e03e56; }
+  background: #e03e56;
+  color: #fff; }
 
-.y {
-  background: #f58c3b; }
+.o {
+  background: #f58c3b;
+  color: #fff; }
 
 .b {
-  background: #1d2742; }
+  background: #1d2742;
+  color: #fff; }
+
+.t {
+  background: #25bda6;
+  color: #fff; }
 
 .g {
-  background: #25bda6; }
+  background: #eee; }
 
 .c {
   text-align: center; }
@@ -269,15 +275,27 @@ a, a:hover {
 
 /* Style sheet with the new design for the Journal Skin Creator */
 .main_window {
-  margin-left: 330px;
-  position: relative; }
+  position: absolute;
+  left: 330px;
+  top: 60px; }
   .main_window .journal_preview {
     margin-bottom: 50px; }
+  .main_window .full-width {
+    padding: 30px 50px; }
+  .main_window #imports .import-wrap .journal-wrap {
+    display: inline-block;
+    width: 100px; }
+    .main_window #imports .import-wrap .journal-wrap .journal-box {
+      line-height: 0; }
+      .main_window #imports .import-wrap .journal-wrap .journal-box .journal-sq {
+        display: inline-block;
+        width: 50px;
+        height: 50px; }
 
 .sidebar {
   width: 330px;
   position: fixed;
-  top: 66px;
+  top: 60px;
   left: 0;
   height: 100%;
   overflow: auto;
@@ -285,16 +303,21 @@ a, a:hover {
   color: rgba(255, 255, 255, 0.8); }
   .sidebar .side_page {
     display: none;
-    padding: 20px;
-    font-family: "ubuntu_bold";
-    text-transform: uppercase;
-    font-size: 0.85em;
-    color: rgba(255, 255, 255, 0.8); }
+    padding: 20px; }
     .sidebar .side_page.page-show {
       display: block; }
     .sidebar .side_page .header {
       margin-bottom: 15px;
-      text-align: center; }
+      text-align: center;
+      font-family: "ubuntu_bold";
+      text-transform: uppercase;
+      font-size: 0.85em;
+      color: rgba(255, 255, 255, 0.8); }
+    .sidebar .side_page .heading {
+      font-family: "ubuntu_bold";
+      text-transform: uppercase;
+      font-size: 0.85em;
+      color: rgba(255, 255, 255, 0.8); }
     .sidebar .side_page .color-wrap,
     .sidebar .side_page .styled-select {
       width: 200px;
@@ -315,7 +338,9 @@ a, a:hover {
     .sidebar .side_page label {
       color: rgba(255, 255, 255, 0.8); }
     .sidebar .side_page .sp-replacer {
-      margin-right: 6px; }
+      padding: 3px 6px;
+      background: rgba(255, 255, 255, 0.3);
+      margin: 3px 6px 3px 0; }
   .sidebar .block {
     padding: 10px 20px;
     position: relative;
@@ -338,13 +363,38 @@ a, a:hover {
       right: 10px;
       top: 6px;
       opacity: .3; }
+  .sidebar .style-wrap {
+    display: inline-block; }
+    .sidebar .style-wrap .style-buttons {
+      cursor: pointer;
+      display: inline-block;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      text-align: center;
+      margin: 0 -2px;
+      padding: 3px 14px; }
+      .sidebar .style-wrap .style-buttons.bold {
+        border-left: 2px solid rgba(255, 255, 255, 0.3); }
+      .sidebar .style-wrap .style-buttons.italic {
+        border: 2px solid rgba(255, 255, 255, 0.3); }
+      .sidebar .style-wrap .style-buttons.underline {
+        border-right: 2px solid rgba(255, 255, 255, 0.3); }
+      .sidebar .style-wrap .style-buttons.active {
+        background: #fff;
+        color: #e03e56; }
+        .sidebar .style-wrap .style-buttons.active:hover {
+          background: #fff; }
+      .sidebar .style-wrap .style-buttons:hover {
+        background: rgba(255, 255, 255, 0.2); }
   .sidebar select {
     width: 100%; }
-  .sidebar .styled-select, .sidebar input[type=text] {
+  .sidebar .styled-select,
+  .sidebar input[type=text] {
     background: rgba(255, 255, 255, 0.3);
     color: #fff;
-    font-family: "source" !important; }
-    .sidebar .styled-select:focus, .sidebar input[type=text]:focus {
+    font-family: "source"; }
+    .sidebar .styled-select:focus,
+    .sidebar input[type=text]:focus {
       background: rgba(255, 255, 255, 0.4); }
   .sidebar .select-wrap {
     display: inline-block;
@@ -480,6 +530,25 @@ input[type=range]:focus::-ms-fill-upper {
       width: 290px;
       display: inline-block;
       vertical-align: top; }
+
+.mask {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  .mask .popup {
+    width: 60%;
+    display: inline-block;
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    top: 30%;
+    position: relative; }
 
 /* Left Section */
 .narrow {

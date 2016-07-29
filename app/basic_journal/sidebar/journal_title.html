@@ -2,13 +2,17 @@
 	<div class="reel">
 		<div class="slide">
 			<div class="header">Title</div>
-			<span ng-repeat="e in [form.title.font]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+			<div class="heading">Background</div>
+			<span ng-repeat="e in [form.title.bg]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
 			<div ng-repeat="e in [form.title.font]" ng-include="'app/shared/inputs/font_noalign.html'"></div>
+			<div ng-repeat="e in [form.title]" ng-include="'app/shared/inputs/padding.html'"></div>
 		</div>
 		<div class="slide">
 			<div class="header">Time Stamp</div>
-			<span ng-repeat="e in [form.timestamp.font]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
+			<div class="heading">Background</div>
+			<span ng-repeat="e in [form.timestamp.bg]" ng-include="'app/shared/inputs/colorpicker.html'"></span>
 			<div ng-repeat="e in [form.timestamp.font]" ng-include="'app/shared/inputs/font_noalign.html'"></div>
+			<div ng-repeat="e in [form.timestamp]" ng-include="'app/shared/inputs/padding.html'"></div>
 		</div>
 	</div>
 </div>

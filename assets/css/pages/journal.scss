@@ -1,19 +1,40 @@
 /* Style sheet with the new design for the Journal Skin Creator */
 
-
 .main_window{
-    margin-left:330px;
-    position:relative;
+    position: absolute;
+    left: 330px;
+    top: $nav_height;
     
     .journal_preview{
         margin-bottom: 50px;
+    }
+
+    .full-width {
+        padding: 30px 50px;
+    }
+
+    #imports {
+        .import-wrap {
+            .journal-wrap {
+                display: inline-block;
+                width: 100px;
+                .journal-box{
+                    line-height: 0;
+                    .journal-sq {
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+            }
+        }
     }
 }
 
 .sidebar{
     width:330px;
     position:fixed;
-    top:66px;
+    top: $nav_height;
     left:0;
     height:100%;
     overflow:auto;
@@ -24,7 +45,6 @@
         display: none;
         padding: 20px;
 
-        @include ubuntu;
 
         &.page-show{
             display: block;
@@ -33,6 +53,11 @@
         .header{
             margin-bottom: 15px;
             text-align: center;
+            @include ubuntu;
+        }
+
+        .heading{
+            @include ubuntu;
         }
 
         .color-wrap,
@@ -65,7 +90,9 @@
         }
 
         .sp-replacer {
-            margin-right: 6px;
+            padding: 3px 6px;
+            background: $white3;
+            margin: 3px 6px 3px 0;
         }
 
     }
@@ -98,14 +125,49 @@
         }
     }
 
+    .style-wrap{
+        display: inline-block;
+        .style-buttons {
+            cursor: pointer;
+            display: inline-block;
+            border-top: 2px solid $white3;
+            border-bottom: 2px solid $white3;
+            text-align: center;
+            margin: 0 -2px;
+            padding: 3px 14px;
+            &.bold {
+                border-left: 2px solid $white3;
+            }
+            &.italic {
+                border: 2px solid $white3;
+            }
+            &.underline {
+                border-right: 2px solid $white3;
+            }
+            &.active {
+                background: $white;
+                color: $pink;
+                &:hover {
+                    background: $white;
+                }
+            }
+            &:hover {
+                background: $white2;
+            }
+        }
+    }
+
+    
+
     select{
         width: 100%;
     }
 
-    .styled-select, input[type=text]{
+    .styled-select, 
+    input[type=text],{
         background: $white3;
         color: $white;
-        font-family: $font_regular!important;
+        font-family: $font_regular;
         &:focus{
             background: $white4;
         }
@@ -278,3 +340,28 @@ input[type=range]:focus::-ms-fill-upper {
         }
     }
 }
+
+.mask{
+    text-align: center;
+    background: $black8;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    .popup{
+        width: 60%;
+        display: inline-block;
+        max-width: 600px;
+        margin: 0 auto;
+        background: $white;
+        padding: 40px;
+        top: 30%;
+        position: relative;
+    }
+}
+
+
+

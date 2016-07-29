@@ -45,33 +45,30 @@
         <ng-include src="'app/basic_journal/sidebar/menu.html'"></ng-include>
     </div>
 
-    <div id="block-10" class="block">Save</div>
+<!--     <div id="block-10" class="block">Save</div>
     <div id="tab-10" class="side_page">
         <ng-include src="'app/basic_journal/sidebar/save.html'"></ng-include>
-    </div>
+    </div> -->
 
 </form>
 
 <script>
-
-$(document).ready(function(){
-    for (i = 1; i <= $('.block').length; i++) { 
-        // When user clicks the block, the tab appears
-        $('#block-' + i).click(function(){
-            $(this).addClass('selected'); // Selected
-            id_name = $(this).attr('id');
-            num = id_name.split("-")[1];
-            $('#tab-' + num).slideToggle();
-            for (i = 1; i <= $('.block').length; i++) {
-                // All the other tabs slide up
-                if (i != parseInt(num)){
-                    $('#tab-' + i).slideUp();
-                    $('#block-' + i).removeClass('selected');
+    $(document).ready(function(){
+        for (i = 1; i <= $('.block').length; i++) { 
+            // When user clicks the block, the tab appears
+            $('#block-' + i).click(function(){
+                $(this).addClass('selected'); // Selected
+                id_name = $(this).attr('id');
+                num = id_name.split("-")[1];
+                $('#tab-' + num).slideToggle();
+                for (i = 1; i <= $('.block').length; i++) {
+                    // All the other tabs slide up
+                    if (i != parseInt(num)){
+                        $('#tab-' + i).slideUp();
+                        $('#block-' + i).removeClass('selected');
+                    }
                 }
-            }
-        });
-    }
-});
-
-
+            });
+        }
+    });
 </script>

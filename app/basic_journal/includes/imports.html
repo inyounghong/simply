@@ -1,0 +1,16 @@
+<div id="imports">
+    <div ng-hide="noJournals">
+        Here are all your journals:
+        <div class="import-wrap">
+        	<div class="journal-wrap" ng-repeat="j in journals">
+                <div class="mini-name">{{j.name}}</div>
+        		<div class="journal-box" ng-click="setJournal(j)">
+                    <div class="journal-sq" style="{{box.style}}" ng-repeat="box in j.journal"></div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+    Skin currently in use: {{form.name}}
+
+    <div ng-show="noJournals">You don't have any saved journal skins.</div>
+</div>

@@ -14,6 +14,20 @@
 			<option value="no-repeat">No Repeat</option>
 		</select>
 	</div>
-	<span ng-repeat="e in [e]" ng-include="'app/shared/inputs/position.html'"></span>
+
+	<div ng-show="e.repeat == 'repeat-y'" class="styled-select">
+		<select ng-model="e.horizontal" ng-change="checkCss()">
+			<option value="left">Left</option>
+			<option value="center">Center</option>
+			<option value="right">Right</option>
+		</select>
+	</div>
+	<div ng-show="e.repeat == 'repeat-x'" class="styled-select">
+		<select ng-model="e.vertical" ng-change="checkCss()">
+			<option value="top">Top</option>
+			<option value="center">Center</option>
+			<option value="bottom">Bottom</option>
+		</select>
+	</div>
 
 </div>

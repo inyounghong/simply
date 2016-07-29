@@ -18,18 +18,3 @@ app.config(['$routeProvider', function($routeProvider) {
             redirectTo: '/'
         });
 }]);
-
-// app.config(function($stateProvider, $urlRouterProvider) {
-    
-//     $urlRouterProvider.otherwise('/home');
-    
-//     $stateProvider
-        
-//         // HOME STATES AND NESTED VIEWS ========================================
-//         .state('directory', {
-//             templateUrl: 'app/profile_directory/tab.html',
-//             controller: 'ProfileDirectoryController'
-//         })
-
-        
-// });
