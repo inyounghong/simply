@@ -6,9 +6,9 @@
 
 <div class="heading">Style</div>
 <div class="style-wrap">
-	<div ng-model="e.bold" class="style-buttons bold" ng-class="{'active': e.bold}" ng-click="checkCss()">Bold</div>
-	<div ng-model="e.italic" class="style-buttons italic" ng-class="{'active': e.italic}" ng-click="e.italic = !e.italic">Italic</div>
-	<div ng-model="e.underline" class="style-buttons underline" ng-class="{'active': e.underline}" ng-click="e.underline = !e.underline">Underline</div>
+	<div ng-model="e.bold" class="style-buttons bold" ng-class="{'active': e.bold}" ng-click="hi()">Bold</div>
+	<div ng-model="e.italic" class="style-buttons italic" ng-class="{'active': e.italic}" ng-click="changeStyle(e.italic)">Italic</div>
+	<div ng-model="e.underline" class="style-buttons underline" ng-class="{'active': e.underline}" ng-click="changeStyle(e.underline)">Underline</div>
 </div>
 
 <div class="heading">Align</div>

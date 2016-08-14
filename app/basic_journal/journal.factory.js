@@ -6,11 +6,19 @@ app.factory("JournalFactory", JournalFactory);
 function JournalFactory() {
 	var service = {
         getCss: getCss,
-        formatJournal: formatJournal
+        formatJournal: formatJournal,
+        getBackground: getBackground
 	};
 	return service;
 
 	////////////////
+
+    function getBackground(e) {
+        if (e.useImage && notNull(e.image)) {
+            return e.color + ' url(' + e.image + ')';
+        }
+        return e.color;
+    }
 
     function formatJournal(j) {
         var toCheck = [j.box.bg, j.top.bg, j.text.bg, j.bottom.bg, j.menu.bg]
@@ -22,8 +30,6 @@ function JournalFactory() {
             if (useForBox(e)){
                 var box = {
                     style: "background: " + e.color + " url('" + e.image + "');"
-                    // color: e.color,
-                    // image: e.image
                 }
                 boxes.push(box);
             }
@@ -32,8 +38,7 @@ function JournalFactory() {
             var e = toCheckColors.pop();
             if (notNull(e.color)) {
                 var box = {
-                    color: e.color,
-                    image: null
+                    style: "background: " + e.color + " url('" + e.image + "');"
                 }
                 boxes.push(box);
             }
@@ -47,6 +52,10 @@ function JournalFactory() {
 
     function notNull(field) {
         return !(field == null || field == "");
+    }
+
+    function isNull(field) {
+        return (field == null || field == "");
     }
 
     function getCss(form, structs) {
@@ -241,7 +250,7 @@ function JournalFactory() {
 	}
 
 	function formatColor(color){
-	    if (notNull(color)){
+	    if (isNull(color)){
 	        return " transparent";
 	    } else {
 	        return " "  + color;

@@ -3,6 +3,7 @@ app.controller('BasicJournalController', ['$scope', '$http', '$routeParams', '$s
 function JournalController($scope, $http, $routeParams, $sce, JournalFactory, FontFactory, JournalAPI){
 
     function activate() {
+        $scope.sidebarCollapsed = false;
         $scope.form = {}
         $scope.started = false;
         $scope.noJournals = true;
@@ -28,31 +29,60 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
             $scope.started = true;
         }
         $scope.save = function () {
+            if (!notEmpty($scope.name)) {
+                $scope.name = "Untitled Skin";
+            }
             $scope.form.name = $scope.name;
-            JournalAPI.saveJournal($scope.form);
+            JournalAPI.saveJournal($scope.form).then(
+                function onSuccess(response) {
+                    $scope.message = "Successfully saved " + $scope.name;
+                },
+                function onFailure(info) {
+                    $scope.message = info;
+                }
+            );
         }
         $scope.setJournal = function (form) {
             $scope.form = form;
+            console.log("setting");
+            console.log(form);
             checkCss();
         }
         $scope.getJournals = function () {
-            JournalAPI.getJournals($scope.username).then(
-                function onSuccess(response) {
-                    if (response.length > 0) {
-                        formatJournals(response);
-                        $scope.noJournals = false;
-                    } else {
-                        console.log("You have no journals");
+            if (notEmpty($scope.username)){
+                JournalAPI.getJournals($scope.username).then(
+                    function onSuccess(response) {
+                        if (response.length > 0) {
+                            formatJournals(response);
+                            $scope.noJournals = false;
+                        } else {
+                            $scope.message = "You have no journals.";
+                        }
+                    },
+                    function onFailure(info) {
+                        console.log(info);
                     }
-                },
-                function onFailure(info) {
-                    console.log(info);
-                }
-            );            
+                );   
+            } else {
+                $scope.message = "Please enter a username.";
+            }
+                     
         }
         $scope.toggle = function (e) {
             console.log(e);
             e = !e;
+        }
+        $scope.setBackground = function (e) {
+            console.log(e);
+            return "background: " + e.color + " url('" + e.image + "');"
+        }
+        $scope.changeStyle = function (e) {
+            console.log(e);
+            e = !e;
+            checkCss();
+        }
+        $scope.hi = function() {
+            console.log("hi");
         }
     }
 
@@ -61,17 +91,26 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
 
     ////////
 
+    function notEmpty(str) {
+        return str && str.trim();
+    }
+
     function formatJournals(journals) {
         var previews = [];
         for (var i = 0; i < journals.length; i++) {
+            var form = journals[i];
             var journal = {
-                name: journals[i].name,
-                journal: JournalFactory.formatJournal(journals[i])
+                name: form.name,
+                form: form,
+                box: { background: JournalFactory.getBackground(form.box.bg) },
+                top: { background: JournalFactory.getBackground(form.top.bg) },
+                text: { background: JournalFactory.getBackground(form.text.bg) },
+                bottom: { background: JournalFactory.getBackground(form.bottom.bg) }
             }
             previews.push(journal);
         }
         $scope.journals = previews;
-        console.log($scope.journals);
+        console.log(previews);
     }
 
     function setUpForm(data) {

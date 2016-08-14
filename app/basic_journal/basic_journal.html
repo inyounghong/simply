@@ -5,30 +5,35 @@
 <div class="main_window">
     <div class="full-width">
         <h1>Journal Skin Creator</h1>
-        <div class="map">
-            <a href="index.php">Resources</a> > Journal Skin Creator
-        </div>
         <div class="descript">
             <p>Make your own DeviantART Journal skins using this free and easy-to-use tool.</p>
         </div>
+    </div>
+
+    <div class="full-width g" id="findSection">
+        <h2>Step 1</h2>
+
+        <div class="miniFormWrap">
+            <input type="text" ng-model="username" placeholder="DeviantART Username">
+            <div class="button" ng-click="getJournals()">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find My Skins
+            </div>
+        </div>
 
         <ng-include src="'app/basic_journal/includes/imports.html'"></ng-include>
+<!--         <div class="miniFormWrap">
+            <input type="text" ng-model="name" placeholder="Journal Skin Name">
+            <div class="button" ng-click="save()">Save</div>
+        </div> -->
+    </div>
 
-        <input type="text" ng-model="username" value="simplysilent">
-        <input type="text" ng-model="name" value="my new skin">
-        <div class="button" ng-click="getJournals()">Find My Skins</div>
-
-        <div class="button" ng-click="save()">Save</div>
-        
+    <div class="full-width">
+        <h2>Step 2</h2>
         <div class="journal_preview">
-
             <span ng-bind-html="fontString"></span>
             <span ng-bind-html="css"></span>
-            
             <!-- Journal -->            
             <ng-include id="journal_box" src="'app/basic_journal/includes/gatsby_journal.html'"></ng-include>
-
-            <span ng-bind-html="small_css"></span>
         </div>
     </div>
 
@@ -37,6 +42,7 @@
     </div>
 
     <div class="full-width">
+        <h2>Step 3</h2>
         <ng-include src="'app/shared/tabs/css.html'"></ng-include>
     </div>
 
@@ -70,6 +76,7 @@ $(window).scroll(function (event) {
 
     }
 });
+
 </script>
 
 <script src="assets/js/slider.js"></script>

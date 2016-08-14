@@ -4,6 +4,11 @@
     position: absolute;
     left: 330px;
     top: $nav_height;
+    transition: left 0.5s;
+
+    &.wide {
+        left: 0px;
+    }
     
     .journal_preview{
         margin-bottom: 50px;
@@ -15,15 +20,36 @@
 
     #imports {
         .import-wrap {
+            padding: 20px;
+            overflow: auto;
+            height: 230px;
+            background: $white8;
+
             .journal-wrap {
-                display: inline-block;
-                width: 100px;
-                .journal-box{
+                @include align-top;
+                width: 150px;
+                padding: 10px;
+                cursor: pointer;
+                &:hover {
+                    background: $gray_light;
+                }
+
+                .mini-name {
+                    margin-top: 10px;
+                    text-align: center;
+                }
+                .mini-box {
                     line-height: 0;
-                    .journal-sq {
-                        display: inline-block;
-                        width: 50px;
-                        height: 50px;
+                    width: 100%;
+                    .mini-top {
+                        height: 30px;
+                    }
+                    .mini-text {
+                        height: 80px;
+                        margin: 10px;
+                    }
+                    .mini-bottom {
+                        height: 30px;
                     }
                 }
             }
@@ -32,166 +58,172 @@
 }
 
 .sidebar{
-    width:330px;
+    position: relative;
+    width: 330px;
     position:fixed;
     top: $nav_height;
     left:0;
-    height:100%;
-    overflow:auto;
-    background: $pink;
-    color: $white8;
+    transition: left 0.5s;
 
-    .side_page {
-        display: none;
-        padding: 20px;
+    &.collapsed {
+        left: -330px;
+    }
+    
 
-
-        &.page-show{
-            display: block;
-        }
-
-        .header{
-            margin-bottom: 15px;
-            text-align: center;
-            @include ubuntu;
-        }
-
-        .heading{
-            @include ubuntu;
-        }
-
-        .color-wrap,
-        .styled-select{
-            width: 200px;
-            margin: 3px 0;
-            @include align-middle;
-        }
-
-        .right {
-            width: 200px;
-            @include align-middle;
-        }
-
-        .img-row{
-            width: 200px;
-            margin-left: 88px;
-
-            input{
-                width: 100%;
-            }
-
-            .select-wrap .styled-select {
-                width: 97px;
-            }
-        }
-
-        label{
-            color: $white8;
-        }
-
-        .sp-replacer {
-            padding: 3px 6px;
-            background: $white3;
-            margin: 3px 6px 3px 0;
-        }
-
+    #sidebar-tab {
+        background: $pink;
+        padding: 8px 10px;
+        position: absolute;
+        right: -30px;
+        z-index: 99px;
     }
 
-    .block{
-        padding: 10px 20px;
-        position: relative;
-        cursor: pointer;
-        background: $black1;
-        border-bottom: 1px solid $pink;
-        @include ubuntu;
+    .sidebar-inside{
+        height:100%;
+        overflow:auto;
+        background: $pink;
+        color: $white8;
 
-        &:hover{
-            background: $white4;
-        }
+        .side_page {
+            display: none;
+            padding: 20px;
 
-        &.selected{
-            background: $white3;
-            &:after{
-                content:url(../../images/arrow-up.png);
-            }
-        }
 
-        &:after{
-            content:url(../../images/arrow-down.png);
-            position:absolute;
-            right:10px;
-            top:6px;
-            opacity:.3;
-        }
-    }
+            &.page-show{
+                display: block;
+            }
 
-    .style-wrap{
-        display: inline-block;
-        .style-buttons {
-            cursor: pointer;
-            display: inline-block;
-            border-top: 2px solid $white3;
-            border-bottom: 2px solid $white3;
-            text-align: center;
-            margin: 0 -2px;
-            padding: 3px 14px;
-            &.bold {
-                border-left: 2px solid $white3;
+            .header{
+                margin-bottom: 15px;
+                text-align: center;
+                @include ubuntu;
             }
-            &.italic {
-                border: 2px solid $white3;
+
+            .heading{
+                @include ubuntu;
             }
-            &.underline {
-                border-right: 2px solid $white3;
+
+            .color-wrap,
+            .styled-select{
+                width: 200px;
+                margin: 3px 0;
+                @include align-middle;
             }
-            &.active {
-                background: $white;
-                color: $pink;
-                &:hover {
-                    background: $white;
+
+            .right {
+                width: 200px;
+                @include align-middle;
+            }
+
+            .img-row{
+                width: 200px;
+                margin-left: 88px;
+
+                input{
+                    width: 100%;
+                }
+
+                .select-wrap .styled-select {
+                    width: 97px;
                 }
             }
-            &:hover {
-                background: $white2;
+
+            label{
+                color: $white8;
+            }
+
+            .sp-replacer {
+                padding: 3px 6px;
+                background: $white3;
+                margin: 3px 6px 3px 0;
+            }
+
+        }
+
+        .block{
+            padding: 10px 20px;
+            position: relative;
+            cursor: pointer;
+            background: $black1;
+            border-bottom: 1px solid $pink;
+            @include ubuntu;
+
+            &:hover{
+                background: $white4;
+            }
+
+            &.selected{
+                background: $white3;
+                &:after{
+                    content:url(../../images/arrow-up.png);
+                }
+            }
+
+            &:after{
+                content:url(../../images/arrow-down.png);
+                position:absolute;
+                right:10px;
+                top:6px;
+                opacity:.3;
+            }
+        }
+
+        .style-wrap{
+            display: inline-block;
+            .style-buttons {
+                cursor: pointer;
+                @include align-top;
+                background: $white3;
+                text-align: center;
+                padding: 3px 13.5px;
+                &.active {
+                    background: $white;
+                    color: $pink;
+                    &:hover {
+                        background: $white;
+                    }
+                }
+                &:hover {
+                    background: $white4;
+                }
+            }
+        }
+
+        
+
+        select{
+            width: 100%;
+        }
+
+        .styled-select, 
+        input[type=text],{
+            background: $white3;
+            color: $white;
+            font-family: $font_regular;
+            &:focus{
+                background: $white4;
+            }
+        }
+
+        .select-wrap{
+            @include align-middle;
+            .styled-select{
+                width: 99px;
+            }
+        }
+
+        .color-wrap{
+            .sp-replacer{
+                padding: 4px 2px 4px 6px;
+                background: $white3;
+                margin-right: -3px;
+            }
+            .styled-select, input[type=text] {
+                width: 172px;
+                @include align-middle;
             }
         }
     }
-
-    
-
-    select{
-        width: 100%;
-    }
-
-    .styled-select, 
-    input[type=text],{
-        background: $white3;
-        color: $white;
-        font-family: $font_regular;
-        &:focus{
-            background: $white4;
-        }
-    }
-
-    .select-wrap{
-        @include align-middle;
-        .styled-select{
-            width: 99px;
-        }
-    }
-
-    .color-wrap{
-        .sp-replacer{
-            padding: 4px 2px 4px 6px;
-            background: $white3;
-            margin-right: -3px;
-        }
-        .styled-select, input[type=text] {
-            width: 172px;
-            @include align-middle;
-        }
-    }
-    
     
 }
 
@@ -309,21 +341,19 @@ input[type=range]:focus::-ms-fill-upper {
     background: #ccc;
 }
 
-
-::-webkit-input-placeholder {
-   color: $white8;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   color: $white8;  
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: $white8;  
-}
-
-:-ms-input-placeholder {  
-   color: $white8;  
+.sidebar {
+    ::-webkit-input-placeholder {
+       color: $white8;
+    }
+    :-moz-placeholder { /* Firefox 18- */
+       color: $white8;  
+    }
+    ::-moz-placeholder {  /* Firefox 19+ */
+       color: $white8;  
+    }
+    :-ms-input-placeholder {  
+       color: $white8;  
+    }
 }
 
 .slider{

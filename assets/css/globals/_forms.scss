@@ -40,7 +40,11 @@ textarea{
     
 }
 
-
+.g input {
+    &:focus {
+        background: $gray;
+    }
+}
 
 input {
     font-size: 14px;
@@ -93,6 +97,19 @@ input {
     }
 
 
+}
+
+// BUTTONS
+
+.button {
+    display: inline-block;
+    padding: 4px 10px;
+    background: $pink;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+        background: $pink_dark;
+    }
 }
 
 

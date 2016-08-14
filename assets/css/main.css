@@ -59,6 +59,9 @@ textarea {
 .range-wrap {
   padding: 8px 0; }
 
+.g input:focus {
+  background: #ddd; }
+
 input {
   font-size: 14px;
   color: #333;
@@ -99,6 +102,15 @@ input {
       background: rgba(255, 255, 255, 0.8); }
     .dots .dot.active {
       background: #fff; }
+
+.button {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #e03e56;
+  color: #fff;
+  cursor: pointer; }
+  .button:hover {
+    background: #A1334A; }
 
 body {
   color: #222;
@@ -277,138 +289,162 @@ a, a:hover {
 .main_window {
   position: absolute;
   left: 330px;
-  top: 60px; }
+  top: 60px;
+  transition: left 0.5s; }
+  .main_window.wide {
+    left: 0px; }
   .main_window .journal_preview {
     margin-bottom: 50px; }
   .main_window .full-width {
     padding: 30px 50px; }
-  .main_window #imports .import-wrap .journal-wrap {
-    display: inline-block;
-    width: 100px; }
-    .main_window #imports .import-wrap .journal-wrap .journal-box {
-      line-height: 0; }
-      .main_window #imports .import-wrap .journal-wrap .journal-box .journal-sq {
-        display: inline-block;
-        width: 50px;
-        height: 50px; }
+  .main_window #imports .import-wrap {
+    padding: 20px;
+    overflow: auto;
+    height: 230px;
+    background: rgba(255, 255, 255, 0.8); }
+    .main_window #imports .import-wrap .journal-wrap {
+      display: inline-block;
+      vertical-align: top;
+      width: 150px;
+      padding: 10px;
+      cursor: pointer; }
+      .main_window #imports .import-wrap .journal-wrap:hover {
+        background: #eee; }
+      .main_window #imports .import-wrap .journal-wrap .mini-name {
+        margin-top: 10px;
+        text-align: center; }
+      .main_window #imports .import-wrap .journal-wrap .mini-box {
+        line-height: 0;
+        width: 100%; }
+        .main_window #imports .import-wrap .journal-wrap .mini-box .mini-top {
+          height: 30px; }
+        .main_window #imports .import-wrap .journal-wrap .mini-box .mini-text {
+          height: 80px;
+          margin: 10px; }
+        .main_window #imports .import-wrap .journal-wrap .mini-box .mini-bottom {
+          height: 30px; }
 
 .sidebar {
+  position: relative;
   width: 330px;
   position: fixed;
   top: 60px;
   left: 0;
-  height: 100%;
-  overflow: auto;
-  background: #e03e56;
-  color: rgba(255, 255, 255, 0.8); }
-  .sidebar .side_page {
-    display: none;
-    padding: 20px; }
-    .sidebar .side_page.page-show {
-      display: block; }
-    .sidebar .side_page .header {
-      margin-bottom: 15px;
-      text-align: center;
-      font-family: "ubuntu_bold";
-      text-transform: uppercase;
-      font-size: 0.85em;
-      color: rgba(255, 255, 255, 0.8); }
-    .sidebar .side_page .heading {
-      font-family: "ubuntu_bold";
-      text-transform: uppercase;
-      font-size: 0.85em;
-      color: rgba(255, 255, 255, 0.8); }
-    .sidebar .side_page .color-wrap,
-    .sidebar .side_page .styled-select {
-      width: 200px;
-      margin: 3px 0;
-      display: inline-block;
-      vertical-align: middle; }
-    .sidebar .side_page .right {
-      width: 200px;
-      display: inline-block;
-      vertical-align: middle; }
-    .sidebar .side_page .img-row {
-      width: 200px;
-      margin-left: 88px; }
-      .sidebar .side_page .img-row input {
-        width: 100%; }
-      .sidebar .side_page .img-row .select-wrap .styled-select {
-        width: 97px; }
-    .sidebar .side_page label {
-      color: rgba(255, 255, 255, 0.8); }
-    .sidebar .side_page .sp-replacer {
-      padding: 3px 6px;
-      background: rgba(255, 255, 255, 0.3);
-      margin: 3px 6px 3px 0; }
-  .sidebar .block {
-    padding: 10px 20px;
-    position: relative;
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #e03e56;
-    font-family: "ubuntu_bold";
-    text-transform: uppercase;
-    font-size: 0.85em;
+  transition: left 0.5s; }
+  .sidebar.collapsed {
+    left: -330px; }
+  .sidebar #sidebar-tab {
+    background: #e03e56;
+    padding: 8px 10px;
+    position: absolute;
+    right: -30px;
+    z-index: 99px; }
+  .sidebar .sidebar-inside {
+    height: 100%;
+    overflow: auto;
+    background: #e03e56;
     color: rgba(255, 255, 255, 0.8); }
-    .sidebar .block:hover {
-      background: rgba(255, 255, 255, 0.4); }
-    .sidebar .block.selected {
-      background: rgba(255, 255, 255, 0.3); }
-      .sidebar .block.selected:after {
-        content: url(../../images/arrow-up.png); }
-    .sidebar .block:after {
-      content: url(../../images/arrow-down.png);
-      position: absolute;
-      right: 10px;
-      top: 6px;
-      opacity: .3; }
-  .sidebar .style-wrap {
-    display: inline-block; }
-    .sidebar .style-wrap .style-buttons {
+    .sidebar .sidebar-inside .side_page {
+      display: none;
+      padding: 20px; }
+      .sidebar .sidebar-inside .side_page.page-show {
+        display: block; }
+      .sidebar .sidebar-inside .side_page .header {
+        margin-bottom: 15px;
+        text-align: center;
+        font-family: "ubuntu_bold";
+        text-transform: uppercase;
+        font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.8); }
+      .sidebar .sidebar-inside .side_page .heading {
+        font-family: "ubuntu_bold";
+        text-transform: uppercase;
+        font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.8); }
+      .sidebar .sidebar-inside .side_page .color-wrap,
+      .sidebar .sidebar-inside .side_page .styled-select {
+        width: 200px;
+        margin: 3px 0;
+        display: inline-block;
+        vertical-align: middle; }
+      .sidebar .sidebar-inside .side_page .right {
+        width: 200px;
+        display: inline-block;
+        vertical-align: middle; }
+      .sidebar .sidebar-inside .side_page .img-row {
+        width: 200px;
+        margin-left: 88px; }
+        .sidebar .sidebar-inside .side_page .img-row input {
+          width: 100%; }
+        .sidebar .sidebar-inside .side_page .img-row .select-wrap .styled-select {
+          width: 97px; }
+      .sidebar .sidebar-inside .side_page label {
+        color: rgba(255, 255, 255, 0.8); }
+      .sidebar .sidebar-inside .side_page .sp-replacer {
+        padding: 3px 6px;
+        background: rgba(255, 255, 255, 0.3);
+        margin: 3px 6px 3px 0; }
+    .sidebar .sidebar-inside .block {
+      padding: 10px 20px;
+      position: relative;
       cursor: pointer;
+      background: rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #e03e56;
+      font-family: "ubuntu_bold";
+      text-transform: uppercase;
+      font-size: 0.85em;
+      color: rgba(255, 255, 255, 0.8); }
+      .sidebar .sidebar-inside .block:hover {
+        background: rgba(255, 255, 255, 0.4); }
+      .sidebar .sidebar-inside .block.selected {
+        background: rgba(255, 255, 255, 0.3); }
+        .sidebar .sidebar-inside .block.selected:after {
+          content: url(../../images/arrow-up.png); }
+      .sidebar .sidebar-inside .block:after {
+        content: url(../../images/arrow-down.png);
+        position: absolute;
+        right: 10px;
+        top: 6px;
+        opacity: .3; }
+    .sidebar .sidebar-inside .style-wrap {
+      display: inline-block; }
+      .sidebar .sidebar-inside .style-wrap .style-buttons {
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: top;
+        background: rgba(255, 255, 255, 0.3);
+        text-align: center;
+        padding: 3px 13.5px; }
+        .sidebar .sidebar-inside .style-wrap .style-buttons.active {
+          background: #fff;
+          color: #e03e56; }
+          .sidebar .sidebar-inside .style-wrap .style-buttons.active:hover {
+            background: #fff; }
+        .sidebar .sidebar-inside .style-wrap .style-buttons:hover {
+          background: rgba(255, 255, 255, 0.4); }
+    .sidebar .sidebar-inside select {
+      width: 100%; }
+    .sidebar .sidebar-inside .styled-select,
+    .sidebar .sidebar-inside input[type=text] {
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-family: "source"; }
+      .sidebar .sidebar-inside .styled-select:focus,
+      .sidebar .sidebar-inside input[type=text]:focus {
+        background: rgba(255, 255, 255, 0.4); }
+    .sidebar .sidebar-inside .select-wrap {
       display: inline-block;
-      border-top: 2px solid rgba(255, 255, 255, 0.3);
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-      text-align: center;
-      margin: 0 -2px;
-      padding: 3px 14px; }
-      .sidebar .style-wrap .style-buttons.bold {
-        border-left: 2px solid rgba(255, 255, 255, 0.3); }
-      .sidebar .style-wrap .style-buttons.italic {
-        border: 2px solid rgba(255, 255, 255, 0.3); }
-      .sidebar .style-wrap .style-buttons.underline {
-        border-right: 2px solid rgba(255, 255, 255, 0.3); }
-      .sidebar .style-wrap .style-buttons.active {
-        background: #fff;
-        color: #e03e56; }
-        .sidebar .style-wrap .style-buttons.active:hover {
-          background: #fff; }
-      .sidebar .style-wrap .style-buttons:hover {
-        background: rgba(255, 255, 255, 0.2); }
-  .sidebar select {
-    width: 100%; }
-  .sidebar .styled-select,
-  .sidebar input[type=text] {
-    background: rgba(255, 255, 255, 0.3);
-    color: #fff;
-    font-family: "source"; }
-    .sidebar .styled-select:focus,
-    .sidebar input[type=text]:focus {
-      background: rgba(255, 255, 255, 0.4); }
-  .sidebar .select-wrap {
-    display: inline-block;
-    vertical-align: middle; }
-    .sidebar .select-wrap .styled-select {
-      width: 99px; }
-  .sidebar .color-wrap .sp-replacer {
-    padding: 4px 2px 4px 6px;
-    background: rgba(255, 255, 255, 0.3);
-    margin-right: -3px; }
-  .sidebar .color-wrap .styled-select, .sidebar .color-wrap input[type=text] {
-    width: 172px;
-    display: inline-block;
-    vertical-align: middle; }
+      vertical-align: middle; }
+      .sidebar .sidebar-inside .select-wrap .styled-select {
+        width: 99px; }
+    .sidebar .sidebar-inside .color-wrap .sp-replacer {
+      padding: 4px 2px 4px 6px;
+      background: rgba(255, 255, 255, 0.3);
+      margin-right: -3px; }
+    .sidebar .sidebar-inside .color-wrap .styled-select, .sidebar .sidebar-inside .color-wrap input[type=text] {
+      width: 172px;
+      display: inline-block;
+      vertical-align: middle; }
 
 .tab_page {
   min-height: 250px; }
@@ -506,18 +542,15 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: #ccc; }
 
-::-webkit-input-placeholder {
+.sidebar ::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.8); }
-
-:-moz-placeholder {
+.sidebar :-moz-placeholder {
   /* Firefox 18- */
   color: rgba(255, 255, 255, 0.8); }
-
-::-moz-placeholder {
+.sidebar ::-moz-placeholder {
   /* Firefox 19+ */
   color: rgba(255, 255, 255, 0.8); }
-
-:-ms-input-placeholder {
+.sidebar :-ms-input-placeholder {
   color: rgba(255, 255, 255, 0.8); }
 
 .slider {
