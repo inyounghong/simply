@@ -1,18 +1,39 @@
 <div id="imports">
-    {{message}}
-    <div ng-hide="noJournals">
-        Here are all your journals:
+    <div ng-show="searched">
+        
         <div class="import-wrap">
-        	<div class="journal-wrap" ng-repeat="j in journals">
-
-                <div class="mini-box" ng-style="{{j.box}}" ng-click="setJournal(j.form)">
-                    <div class="mini-top" ng-style="{{j.top}}"></div>
-                    <div class="mini-text" ng-style="{{j.text}}"></div>
-                    <div class="mini-bottom" ng-style="{{j.bottom}}"></div>
+            <h3>Journal Skins</h3>
+            {{message}}
+            <div>
+            	<div class="journal-wrap" ng-repeat="j in journals">
+                    <div class="btn-group">
+                      <button class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <span class="delete" ng-click="deleteJournal(j.id)">Delete</span>
+                      </ul>
+                    </div>
+                    <div class="mini-box" ng-style="{{j.box}}" ><!-- ng-click="setJournal(j.form)" -->
+                        <div class="mini-top" ng-style="{{j.top}}"></div>
+                        <div class="mini-text" ng-style="{{j.text}}"></div>
+                        <div class="mini-bottom" ng-style="{{j.bottom}}"></div>
+                    </div>
+                    <div class="mini-name">{{j.name}}</div>
+            	</div>
+            </div>
+            <h3>Trash</h3>
+            <div ng-click="getTrashJournals()">Show Trash</div>
+            <div>
+                <div class="journal-wrap" ng-repeat="j in trashJournals">
+                    <div class="mini-box" ng-style="{{j.box}}" ng-click="setJournal(j.form)">
+                        <div class="mini-top" ng-style="{{j.top}}"></div>
+                        <div class="mini-text" ng-style="{{j.text}}"></div>
+                        <div class="mini-bottom" ng-style="{{j.bottom}}"></div>
+                    </div>
+                    <div class="mini-name">{{j.name}}</div>
                 </div>
-                <div class="mini-name">{{j.name}}</div>
-
-        	</div>
+            </div>
         </div>
     </div>
     Skin currently in use: {{form.name}}

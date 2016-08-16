@@ -29,18 +29,26 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
             $scope.started = true;
         }
         $scope.save = function () {
-            if (!notEmpty($scope.name)) {
-                $scope.name = "Untitled Skin";
-            }
-            $scope.form.name = $scope.name;
-            JournalAPI.saveJournal($scope.form).then(
-                function onSuccess(response) {
-                    $scope.message = "Successfully saved " + $scope.name;
-                },
-                function onFailure(info) {
-                    $scope.message = info;
+            if (notEmpty($scope.username)){
+                if (!notEmpty($scope.name)) {
+                    $scope.name = "Untitled Skin";
                 }
-            );
+                var postData = {
+                    user: $scope.username,
+                    name: $scope.name,
+                    journal: $scope.form
+                }
+                JournalAPI.saveJournal(postData).then(
+                    function onSuccess(response) {
+                        $scope.message = "Successfully saved " + $scope.name;
+                    },
+                    function onFailure(info) {
+                        $scope.message = info;
+                    }
+                );
+            } else {
+                $scope.message = "Please enter a username.";
+            }
         }
         $scope.setJournal = function (form) {
             $scope.form = form;
@@ -52,11 +60,12 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
             if (notEmpty($scope.username)){
                 JournalAPI.getJournals($scope.username).then(
                     function onSuccess(response) {
+                        $scope.searched = true;
                         if (response.length > 0) {
-                            formatJournals(response);
-                            $scope.noJournals = false;
+                            console.log(response);
+                            $scope.journals = formatJournals(response);
                         } else {
-                            $scope.message = "You have no journals.";
+                            $scope.message = "You have no journal skins saved on this site.";
                         }
                     },
                     function onFailure(info) {
@@ -68,6 +77,27 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
             }
                      
         }
+        $scope.getTrashJournals = function () {
+            if (notEmpty($scope.username)){
+                JournalAPI.getTrashJournals($scope.username).then(
+                    function onSuccess(response) {
+                        if (response.length > 0) {
+                            console.log(response);
+                            $scope.trashJournals = formatJournals(response);
+                        } else {
+                            $scope.message = "You have no skins in trash.";
+                            emptyJournals();
+                        }
+                    },
+                    function onFailure(info) {
+                        console.log(info);
+                    }
+                );   
+            } else {
+                $scope.message = "Please enter a username.";
+            }        
+        }
+        $scope.deleteJournal = deleteJournal;
         $scope.toggle = function (e) {
             console.log(e);
             e = !e;
@@ -91,6 +121,24 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
 
     ////////
 
+    function emptyJournals() {
+        $scope.journals = [];
+        $scope.trashJournals = [];
+        $scope.noJournals = true;
+    }
+
+    function deleteJournal(id) {
+        console.log("Deleting journal" + id);
+        JournalAPI.deleteJournal(id).then(
+            function onSuccess(response) {
+                console.log(response);
+            },
+            function onFailure(info) {
+                console.log(info);
+            }
+        );   
+    }
+
     function notEmpty(str) {
         return str && str.trim();
     }
@@ -98,19 +146,20 @@ function JournalController($scope, $http, $routeParams, $sce, JournalFactory, Fo
     function formatJournals(journals) {
         var previews = [];
         for (var i = 0; i < journals.length; i++) {
-            var form = journals[i];
+            var row = journals[i];
             var journal = {
-                name: form.name,
-                form: form,
-                box: { background: JournalFactory.getBackground(form.box.bg) },
-                top: { background: JournalFactory.getBackground(form.top.bg) },
-                text: { background: JournalFactory.getBackground(form.text.bg) },
-                bottom: { background: JournalFactory.getBackground(form.bottom.bg) }
+                id: row.id,
+                name: row.name,
+                form: row.journal,
+                user: row.user,
+                box: { background: JournalFactory.getBackground(row.journal.box.bg) },
+                top: { background: JournalFactory.getBackground(row.journal.top.bg) },
+                text: { background: JournalFactory.getBackground(row.journal.text.bg) },
+                bottom: { background: JournalFactory.getBackground(row.journal.bottom.bg) }
             }
             previews.push(journal);
         }
-        $scope.journals = previews;
-        console.log(previews);
+        return previews;
     }
 
     function setUpForm(data) {

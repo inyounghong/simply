@@ -8,23 +8,35 @@ function JournalAPI($http) {
 
 	var service = {
         saveJournal: saveJournal,
-        getJournals: getJournals
+        deleteJournal: deleteJournal,
+        getJournals: getJournals,
+        getTrashJournals: getTrashJournals
 	};
 	return service;
 
 	////////////////
 
-    function saveJournal(form) {
-        return $http.post('/src/saveJson.php', form).then(function(res) {
-            console.log("saved");
+    function saveJournal(journal) {
+        return $http.post('/src/saveJson.php', journal).then(function(res) {
             console.log(res);
             return res;
         });
     }
 
+    function deleteJournal(id) {
+        return $http.post('/src/deleteJournal.php', id).then(function(res) {
+            return res;
+        });
+    }
+
     function getJournals(username) {
-        console.log("getting");
-        return $http.get('/src/getJournals.php', {params: {username: username}}).then(function(res) {
+        return $http.get('/src/getJournals.php', {params: {username: username, trash: 0}}).then(function(res) {
+            return res.data;
+        });
+    }
+
+    function getTrashJournals(username) {
+        return $http.get('/src/getJournals.php', {params: {username: username, trash: 1}}).then(function(res) {
             return res.data;
         });
     }

@@ -12,19 +12,20 @@
 
     <div class="full-width g" id="findSection">
         <h2>Step 1</h2>
-
+        <p>If you have saved a journal skin on this site, search with your username below.
         <div class="miniFormWrap">
             <input type="text" ng-model="username" placeholder="DeviantART Username">
             <div class="button" ng-click="getJournals()">
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Find My Skins
             </div>
         </div>
+        <p>If not, start creating a new journal skin in Step 2.<p>
 
         <ng-include src="'app/basic_journal/includes/imports.html'"></ng-include>
-<!--         <div class="miniFormWrap">
+        <div class="miniFormWrap">
             <input type="text" ng-model="name" placeholder="Journal Skin Name">
             <div class="button" ng-click="save()">Save</div>
-        </div> -->
+        </div>
     </div>
 
     <div class="full-width">
